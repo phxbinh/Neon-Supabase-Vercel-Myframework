@@ -64,6 +64,7 @@ export default async function handler(req, res) {
     window.__INITIAL_STATE__ = {
       todos: ${JSON.stringify(todos)}
     };
+    alert('SSR handler chạy! Check console.');
   </script>
   <script type="module" src="/src/app/main.client.js"></script>
 </body>
