@@ -11,7 +11,7 @@ import { queryClient } from "../framework/query.js";
 const { Router } = window.App;
 
 
-
+alert(JSON.stringify(window.__INITIAL_STATE__?.todos))
 
 // src/app/main.client.js
 // ... imports giữ nguyên
