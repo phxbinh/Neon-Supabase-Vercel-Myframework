@@ -6,3 +6,30 @@
 - GitHub repo.  
 - Google search.  
 - Optimizer SEO -> SSR
+
+```json
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "rewrites": [
+    // Giữ nguyên API route cũ
+    {
+      "source": "/api/todos",
+      "destination": "/api/todos"
+    },
+    {
+      "source": "/api/(.*)",
+      "destination": "/api/$1"
+    },
+
+    // Tất cả còn lại (/, /about, bất kỳ route nào) → gọi ssr function
+    {
+      "source": "/(.*)",
+      "destination": "/api/ssr"
+    }
+  ]
+}
+```
+
+```json
+
+```
