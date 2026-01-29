@@ -80,7 +80,8 @@ import { fetchTodos, createTodo, removeTodo } from "../../shared/api.js";
 // Dùng useQuery custom
 const { useQuery } = window.App.Hooks;
 
-export function TodoApp({ data, status: routeStatus }) {
+//export function TodoApp({ data, status: routeStatus }) {
+  export function TodoApp() {
   if (routeStatus === "loading") {
     return h("p", null, "Loading todos TodoApp.js ...");
   }
