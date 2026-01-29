@@ -56,3 +56,28 @@
   ]
 }
 ```
+
+
+```json
+{
+  "version": 2,
+  "functions": {
+    "api/index.js": {
+      "memory": 1024,
+      "maxDuration": 10
+    }
+  },
+  "rewrites": [
+    {
+      "source": "/api/(.*)",
+      "destination": "/api/$1"
+    },
+    {
+      "source": "/((?!api/).*)",
+      "destination": "/api/index.js"
+    }
+  ]
+}
+```
+
+
