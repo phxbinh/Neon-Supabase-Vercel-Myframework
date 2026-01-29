@@ -31,5 +31,10 @@
 ```
 
 ```json
-
+{
+  "rewrites": [
+    { "source": "/api/(.*)", "destination": "/api/$1" },
+    { "source": "/(.*)", "destination": "/index.html" }
+  ]
+}
 ```
