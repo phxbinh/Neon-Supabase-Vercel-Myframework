@@ -9,25 +9,40 @@ import { fetchTodos } from "../shared/api.js";
 import { queryClient } from "../framework/query.js";
 
 const { Router } = window.App;
-/*
+
+
+
+
+// src/app/main.client.js
+// ... imports giữ nguyên
+
+// Hydrate initial state từ server
+if (window.__INITIAL_STATE__?.todos) {
+  queryClient.setQueryData('todos:list', window.__INITIAL_STATE__.todos);
+  // Optional: xóa để tiết kiệm bộ nhớ
+  delete window.__INITIAL_STATE__;
+}
+
 Router.addRoute({
   path: "/",
   component: TodoApp,
+  // Không cần loader prefetch nữa vì server đã làm
+  // Nhưng vẫn có thể giữ để refetch background nếu muốn
   loader: async () => {
-    
-    if (window.__CACHE__?.todos) {
-      return { todos: window.__CACHE__.todos };
+    // chỉ fetch nếu chưa có data (ít xảy ra)
+    if (!queryClient.getQueryData('todos:list')) {
+      await queryClient.prefetch('todos:list', fetchTodos);
     }
-    const todos = await fetchTodos();
-    window.__CACHE__ = {
-      ...(window.__CACHE__ || {}),
-      todos
-    };
-    return { todos };
+    return {};
   }
 });
-*/
 
+Router.init(document.getElementById("app"), { hash: true });
+
+
+
+
+/* gốc
 // Trong file router config (ví dụ main.js hoặc nơi addRoute)
 Router.addRoute({
   path: "/",
@@ -41,4 +56,4 @@ Router.addRoute({
 
 
 Router.init(document.getElementById("app"), { hash: true });
-
+*/
