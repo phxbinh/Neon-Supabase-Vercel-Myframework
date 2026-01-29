@@ -4,4 +4,5 @@
 - Supabase làm server auth và bucket.storage.  
 - Deploy trên vercel.  
 - GitHub repo.  
-- Google search.
+- Google search.  
+- Optimizer SEO -> SSR
