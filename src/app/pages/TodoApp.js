@@ -204,10 +204,11 @@ export function TodoApp({ data = {}, status: routeStatus = "idle" }) {
     queryClient.setQueryData(TODOS_KEY, initialTodos);
   }
 
-  const { data: todos = [], status } = useQuery(TODOS_KEY, fetchTodos, {
+  //const { data: todos = [], status } = useQuery(TODOS_KEY, fetchTodos);
+  /*, {
     // Optional: chỉ fetch lại nếu chưa có data (đã hydrate)
-    enabled: !initialTodos.length,
-  });
+    //enabled: !initialTodos.length,
+  });*/
 
   // ... phần còn lại giữ nguyên (input, add, del, UI)
 
@@ -232,7 +233,7 @@ export function TodoApp({ data = {}, status: routeStatus = "idle" }) {
     ),
 
     h("ul", { className: "todo-list" },
-      todos.map(t =>
+      data.todos.map(t =>
         h("li", {
           className: "todo-item",
           key: t.id,
