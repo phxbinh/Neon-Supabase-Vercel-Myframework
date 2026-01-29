@@ -18,6 +18,7 @@ const { Router } = window.App;
 
 // Hydrate initial state từ server
 if (window.__INITIAL_STATE__?.todos) {
+  alert(JSON.stringify(window.__INITIAL_STATE__?.todos))
   queryClient.setQueryData('todos:list', window.__INITIAL_STATE__.todos);
   // Optional: xóa để tiết kiệm bộ nhớ
   delete window.__INITIAL_STATE__;
