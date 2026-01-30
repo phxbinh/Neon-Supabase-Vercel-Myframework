@@ -26,7 +26,7 @@ export default defineConfig({
     },
   },
   ssr: {                        // quan trọng cho SSR custom
-    noExternal: ['@neondatabase/serverless', '../framework/**'], // tránh external Neon nếu nó gây lỗi
+    noExternal: ['@neondatabase/serverless', '../framework/*'], // tránh external Neon nếu nó gây lỗi
     target: 'node',             // build cho Node.js (Vercel dùng Node)
   },
   server: {
