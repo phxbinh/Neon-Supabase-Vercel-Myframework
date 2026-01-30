@@ -1,12 +1,12 @@
 
 // src/app/pages/TodoApp.js
-const { h } = window.App.VDOM;
-const { useState } = window.App.Hooks;
+const { h } = App.VDOM;
+const { useState } = App.Hooks;
 import { queryClient } from '../../framework/query.js'; // hoặc import nếu có
 import { fetchTodos, createTodo, removeTodo } from "../../shared/api.js";
 
 // Dùng useQuery custom
-const { useQuery } = window.App.Hooks;
+const { useQuery } = App.Hooks;
 export function TodoApp({ data, status: routeStatus }) {
   //export function TodoApp() {
     
