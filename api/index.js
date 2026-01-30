@@ -1,7 +1,7 @@
 // api/index.js  (hoặc api/[[...]].js để catch-all)
 import { neon } from "@neondatabase/serverless";
 import { renderToString } from "../src/framework/vdom.core.js";
-import { TodoApp } from "../app/pages/TodoApp.js";
+import { TodoApp } from "../src/app/pages/TodoApp.js";
 import { queryClient } from "../src/framework/query.js";
 
 const sql = neon(process.env.DATABASE_URL);
